@@ -1,7 +1,7 @@
 <table>
-<% @blogs.each do |tweet| %>
+<% @tweets.each do |tweet| %>
   <tr>
-    <td><%= Tweet.content %></td>
+    <td><%= tweet.content %></td>
     <td><%= link_to '詳細を確認する', tweet_path(tweet.id) %></td>
   </tr>
 <% end %>
