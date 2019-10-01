@@ -37,6 +37,10 @@ class TweetsController < ApplicationController
     redirect_to tweets_path, notice:"ツイートを削除しました！"
   end
 
+  def confirm
+    @tweet = Tweet.new(tweet_params)
+  end
+  
   private
 
   def tweet_params
