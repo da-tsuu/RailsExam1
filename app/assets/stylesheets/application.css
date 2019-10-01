@@ -13,3 +13,50 @@
  *= require_tree .
  *= require_self
  */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #00CCFF;
+  width: 100%;
+  height: 80px;
+
+}
+footer {
+  background-color: #00CCFF;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 0;
+  margin-top:auto;
+}
+
+input[type="text"] {
+        width: 60%;
+        height: 50px;
+        margin-top: 40px;
+        border-radius:10px;
+        padding: 2px 8px;
+    }
+
+#logo {
+  padding: 4px;
+  width: 10px;
+  height: auto;
+  float:left;
+}
+
+#newicon {
+  width: 10px;
+  height:auto;
+  float:left;
+  margin-left: 60px;
+  padding: 12px;
+}
+
+#submit_btn {
+  float:right;
+}

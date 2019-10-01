@@ -1,4 +1,4 @@
-<%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
+<%= form_with(model: @tweet, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if @tweet.errors.any? %>
     <div id="error_explanation">
       <h2><%= @tweet.errors.count %>件のエラーがあります。</h2>
@@ -10,9 +10,14 @@
       </ul>
     </div>
   <% end %>
+
   <div class="tweet_content">
-    <%= form.label :Tweet! %>
-    <%= form.text_field :content %>
+  <%= form.label :Tweet! %>
+  <%= form.text_field :content %>
   </div>
-  <%= form.submit %>
-<% end %>
+    <%= form.submit do %>
+    <%= image_tag "tweet_button.png" %>
+    <% end %>
+  <% end %>
+
+<%= link_to "ツイートの一覧の画面にもどる", tweets_path %>

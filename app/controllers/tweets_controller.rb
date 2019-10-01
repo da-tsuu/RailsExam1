@@ -11,10 +11,14 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
-    if @tweet.save
-      redirect_to tweets_path, notice: "ツイートを投稿しました！"
-    else
+    if params[:back]
       render :new
+    else
+      if @tweet.save
+      redirect_to tweets_path, notice: "ツイートを投稿しました！"
+      else
+      render :'new'
+      end
     end
   end
 
@@ -25,7 +29,7 @@ class TweetsController < ApplicationController
   end
 
   def update
-    if @blog.update(tweet_params)
+    if @tweet.update(tweet_params)
       redirect_to tweets_path, notice: "ツイートを編集しました！"
     else
       render :edit
@@ -39,8 +43,9 @@ class TweetsController < ApplicationController
 
   def confirm
     @tweet = Tweet.new(tweet_params)
+    render :new if @tweet.invalid?
   end
-  
+
   private
 
   def tweet_params
@@ -50,4 +55,5 @@ class TweetsController < ApplicationController
   def set_tweet
     @tweet = Tweet.find(params[:id])
   end
+
 end

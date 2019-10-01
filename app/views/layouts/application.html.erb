@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsBeginnersExam</title>
+    <title>RailsExam1</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <header>
+        <div id="logo">
+          <%= link_to tweets_path do %>
+          <%= image_tag "twitter-logo.png" %>
+          <% end %>
+        </div>
+        <div id="newicon">
+          <%= link_to new_tweet_path do %>
+          <%= image_tag "post.png" %>
+          <% end %>
+        </div>
+      </header>
+      <%= yield %>
+      <footer>
+      </footer>
+    </div>
   </body>
 </html>
