@@ -2,7 +2,9 @@
 <% @blogs.each do |tweet| %>
   <tr>
     <td><%= Tweet.content %></td>
+    <td><%= link_to '詳細を確認する', tweet_path(tweet.id) %></td>
   </tr>
 <% end %>
 </table>
+<br>
 <%= link_to '新しくツイートを投稿する', new_tweet_path %>
