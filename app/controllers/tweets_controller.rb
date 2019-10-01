@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   def index
+    @tweets = Tweet.all
   end
 
   def new
@@ -7,7 +8,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(content: params[:tweet][:content])
+    Tweet.create(params[:tweet])
     redirect_to new_tweet_path
   end
+
+  private
+
+  def tweet_params
+    params.require(tweet).permit(:content)
 end
